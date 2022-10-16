@@ -29,7 +29,7 @@ int UnevenPos(int[] someArray)  //2.Функция принимает масси
 }
 Console.Clear();
 
-Console.WriteLine("Размер массива: ");
+Console.WriteLine("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 
 int[] array = GetArray(sizeArray);
