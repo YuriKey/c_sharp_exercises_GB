@@ -9,7 +9,7 @@ int[] GetArray(int size)        //1.Функция задает массив с�
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next(-100, 100);
+        res[i] = new Random().Next();
     }
     return res;
 }
