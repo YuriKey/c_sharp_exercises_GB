@@ -9,6 +9,7 @@ double[] GetArray(int size)         //1.Функция, заполняющая �
     for (int i = 0; i < size; i++)
     {
         res[i] = new Random().Next();
+        res[i] = Math.Round(res[i], 2);
     }
     return res;
 }
@@ -45,7 +46,7 @@ Console.WriteLine("Введите размер массива: ");
 int size = int.Parse(Console.ReadLine()!);
 double[] numArray = GetArray(size);
 
-Console.WriteLine(String.Join(", ", numArray));
-Console.WriteLine($"MAX = {FindMaxValue(numArray)}");
-Console.WriteLine($"MIN = {FindMinValue(numArray)}");
+Console.WriteLine(String.Join("; ", numArray));
+Console.WriteLine($"MAX = {FindMaxValue(numArray):f2}");
+Console.WriteLine($"MIN = {FindMinValue(numArray):f2}");
 Console.WriteLine($"Разность максимального и минимального элементов равна: {FindMaxValue(numArray) - FindMinValue(numArray)}");  
