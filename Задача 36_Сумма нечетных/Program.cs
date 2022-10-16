@@ -9,7 +9,7 @@ int[] GetArray(int size)        //1.Функция задает массив с�
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next();
+        res[i] = new Random().Next(-100, 100);
     }
     return res;
 }
@@ -17,11 +17,11 @@ int[] GetArray(int size)        //1.Функция задает массив с�
 int UnevenPos(int[] someArray)  //2.Функция принимает массив, перебирает элементы, 
 {                               //если элемент стоит на нечетной позиции, складывает в int res.
     int res = 0;
-    for (int i = 0; i < someArray.Length; i++)
+    for (int i = 0; i < someArray.Length ; i++)
     {
         if (i % 2 != 0)
         {
-            res = res + someArray[i];
+            res += someArray[i];
         }
 
     }
@@ -29,7 +29,7 @@ int UnevenPos(int[] someArray)  //2.Функция принимает масси
 }
 Console.Clear();
 
-Console.WriteLine("Введите размер массива: ");
+Console.Write("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 
 int[] array = GetArray(sizeArray);

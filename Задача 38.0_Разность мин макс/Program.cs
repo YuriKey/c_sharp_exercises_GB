@@ -42,7 +42,7 @@ double FindMinValue(double[] array) //3. Функция, определяюща�
 
 Console.Clear();
 
-Console.WriteLine("Введите размер массива: ");
+Console.Write("Введите размер массива: ");
 int size = int.Parse(Console.ReadLine()!);
 double[] numArray = GetArray(size);
 

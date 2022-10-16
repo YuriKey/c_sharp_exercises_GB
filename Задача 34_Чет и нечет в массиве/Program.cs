@@ -15,7 +15,7 @@ int[] GetArray(int size)        //Функция, создающая масси�
 
 int EvenNumb(int[] someArray)                       // Создаем функцию, считающую количество четных элементов в заданном интервале.
 {
-    int count = 0;
+    int count = 0;                                  // Счетчик четных чисел.
     for (int i = 0; i < someArray.Length; i++)
     {
         if (someArray[i] % 2 == 0)
@@ -28,7 +28,7 @@ int EvenNumb(int[] someArray)                       // Создаем функц
 
 Console.Clear();
 
-Console.WriteLine("Введите размер массива: ");
+Console.Write("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 
 int[] newArray = GetArray(sizeArray);
