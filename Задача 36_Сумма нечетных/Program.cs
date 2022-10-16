@@ -17,18 +17,17 @@ int[] GetArray(int size)        //1.Функция задает массив с�
 int UnevenPos(int[] someArray)  //2.Функция принимает массив, перебирает элементы, 
 {                               //если элемент стоит на нечетной позиции, складывает в int res.
     int res = 0;
-    for (int i = 0; i < someArray.Length ; i++)
+    for (int i = 0; i < someArray.Length; i++)
     {
         if (i % 2 != 0)
         {
             res += someArray[i];
         }
-
     }
     return res;
 }
-Console.Clear();
 
+Console.Clear();
 Console.Write("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 

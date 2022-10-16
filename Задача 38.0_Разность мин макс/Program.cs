@@ -9,7 +9,7 @@ double[] GetArray(int size)         //1.Функция, заполняющая �
     for (int i = 0; i < size; i++)
     {
         res[i] = new Random().NextDouble();
-        res[i] = Math.Round(res[i], 2);
+        // res[i] = Math.Round(res[i], 2);
     }
     return res;
 }
@@ -44,9 +44,38 @@ Console.Clear();
 
 Console.Write("Введите размер массива: ");
 int size = int.Parse(Console.ReadLine()!);
+
 double[] numArray = GetArray(size);
 
 Console.WriteLine(String.Join("; ", numArray));
-Console.WriteLine($"MAX = {FindMaxValue(numArray):f2}");
-Console.WriteLine($"MIN = {FindMinValue(numArray):f2}");
-Console.WriteLine($"Разность максимального и минимального элементов равна: {FindMaxValue(numArray) - FindMinValue(numArray)}");  
+Console.WriteLine($"MAX = {FindMaxValue(numArray)}"); //(numArray):f2}");
+Console.WriteLine($"MIN = {FindMinValue(numArray)}"); //(numArray):f2}");
+Console.WriteLine($"Разность максимального и минимального элементов равна: {FindMaxValue(numArray) - FindMinValue(numArray)}");
+
+//Можно обернуть 2ю и 3ю функции в метод, возвращающий уже разницу, как показано ниже.
+//Но мне бы хотелось оставить на будущее эти методы отдельно друг от друга.
+
+// double FindDiff(double[] array)
+// {
+//     double maxValue = array[0];
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] > maxValue)
+//         {
+//             maxValue = array[i];
+//         }
+//     }
+
+//     double minValue = array[0];
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] < minValue)
+//         {
+//             minValue = array[i];
+//         }
+//     }
+//     double diff = maxValue - minValue;
+//     return diff;
+// }
+// Console.WriteLine(String.Join("; ", numArray));
+// Console.WriteLine($"Разность максимального и минимального элементов равна: {FindDiff(numArray)}");

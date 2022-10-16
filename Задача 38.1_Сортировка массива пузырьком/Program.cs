@@ -9,7 +9,7 @@ int[] GetArray(int size)        //1.Функция задает массив с�
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next();
+        res[i] = new Random().Next(); //Next(-100, 100); Next(0, 3);
     }
     return res;
 }
@@ -37,5 +37,6 @@ Console.Write("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 
 int[] someArray = GetArray(sizeArray);
+
 Console.WriteLine(string.Join(", ", someArray));
 Console.WriteLine(string.Join(", ", SortArray(someArray)));

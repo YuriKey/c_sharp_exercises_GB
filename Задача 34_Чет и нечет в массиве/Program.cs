@@ -27,10 +27,10 @@ int EvenNumb(int[] someArray)                       // Создаем функц
 }
 
 Console.Clear();
-
 Console.Write("Введите размер массива: ");
 int sizeArray = int.Parse(Console.ReadLine()!);
 
 int[] newArray = GetArray(sizeArray);
+
 Console.WriteLine(String.Join(", ", newArray));
-Console.WriteLine($"Количество четных чисел в заданном массиве: {EvenNumb(  newArray)}"!);
+Console.WriteLine($"Количество четных чисел в заданном массиве: {EvenNumb(newArray)}"!);
