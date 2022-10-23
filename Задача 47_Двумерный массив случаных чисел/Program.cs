@@ -3,10 +3,10 @@
 
 double[,] GetArray(int m, int n, int minValue, int maxValue) // Метод создает двумерный массив случайных чисел.
 {
-    double[,] result = new double[m, n]; //Создается результирующий массив.
+    double[,] result = new double[m, n];
 
-    for (int i = 0; i < m; i++) //счетчик бежит по строкам
-        for (int j = 0; j < n; j++) //счетчик бежит по столбцам
+    for (int i = 0; i < m; i++)
+        for (int j = 0; j < n; j++)
         {
             result[i, j] = new Random().NextDouble() * (maxValue - minValue) + minValue;
             result[i, j] = Math.Round(result[i, j], 2);
@@ -14,7 +14,7 @@ double[,] GetArray(int m, int n, int minValue, int maxValue) // Метод со�
     return result;
 }
 
-void PrintArray(double[,] inArray)
+void PrintArray(double[,] inArray) // Метод выводит массив на печать.
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
