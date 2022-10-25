@@ -64,5 +64,7 @@ int num = int.Parse(Console.ReadLine()!);
 
 int[,] array = GetArray(row, columns, 0, 10);
 PrintArray(array);
-Console.WriteLine(String.Join("; ", FindNumInArray(array, num)));
+
+Console.WriteLine();
+Console.WriteLine( String.Join("; ", FindNumInArray(array, num)));
 
