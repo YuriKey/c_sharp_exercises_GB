@@ -7,8 +7,7 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-// Функция 1. Метод создает двумерный массив случайных чисел.
-int[,] GetArray(int m, int n, int minValue, int maxValue)
+int[,] GetArray(int m, int n, int minValue, int maxValue) // f1. Метод создает двумерный массив случайных чисел.
 {
     int[,] result = new int[m, n];
 
@@ -20,28 +19,26 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
     return result;
 }
 
-// Функция 2. Считает среднее арифметическое в столбцах двумерного массива.
-// Принимает двумерный массив, возвращает одномерный массив.
-double[] FindAverageCol(int[,] array)
+void FindAverageInColumns(int[,] array) // f2. Считает среднее арифметическое в столбцах двумерного массива.
 {
-    double[] res = new double[array.Length];
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        double result = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-
+            result += array[i, j];
         }
+        Console.Write($"{result / array.GetLength(0)}; ");
     }
 }
 
-// Функция 3. Выводит на печать двумерный массив.
-void PrintArrayOld(int[,] inArray)
+void PrintArrayOld(int[,] inArray)  // f3. Выводит на печать двумерный массив.
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
-            Console.Write($"{inArray[i, j]}\t ");
+            Console.Write($"{inArray[i, j]}\t");
         }
         Console.WriteLine();
     }
@@ -55,7 +52,7 @@ int columns = int.Parse(Console.ReadLine()!);
 
 int[,] array = GetArray(row, columns, 0, 10);
 
-PrintArrayOld (array); // Печать исходного двумерного массива.
+PrintArrayOld(array);
 Console.WriteLine();
 Console.Write("Средние арифметические значения столбцов равны: ");
-Console.WriteLine(string.Join("; ", FindAverageCol(array))); // Вывод результата.
+FindAverageInColumns(array);
