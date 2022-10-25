@@ -28,7 +28,8 @@ void ChangeArray (int[] array)               // Функция замены зн
 
 Console.Clear();
 int[] array = GetArray(12, -10, 10);         //Вызываем функцию GetArray
-Console.WriteLine(String.Join(", ", array)); //один из методов печати массива через Join. Join склеивает массивы. Вызываем метод, задаем в "" разделитель и печатаемый массив.
+Console.WriteLine(String.Join(", ", array)); //один из методов печати массива через Join. Join склеивает массивы. 
+                                                //Вызываем метод, задаем в "" разделитель и печатаемый массив.
 
 ChangeArray (array);                        //Вызываем функцию ChangeArray
 Console.WriteLine(String.Join(", ", array));
