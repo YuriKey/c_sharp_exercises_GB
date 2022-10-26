@@ -18,7 +18,7 @@ string[] GetStrArrayFromString(string num)
 // 2 функция: принимает строковый массив, преобразует в массив int, возвращает одномерный массив int.
 int[] ConvertStrArrayToInt(string[] array)
 {
-    int[] res = new int[array.Length + 1];
+    int[] res = new int[array.Length + 1]; //Чтобы было с чем сравнивать последнее значение.
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] == "I")
@@ -47,10 +47,10 @@ int GetArabicNum(int[] array)
     {
         if (array[i] < array[i + 1])
         {
-            res = res + (array[i + 1] - array[i]);
+            res += (array[i + 1] - array[i]);
             i++;
         }
-        else res = res + array[i];
+        else res += array[i];
     }
     return res;
 }
@@ -59,7 +59,7 @@ Console.Clear();
 Console.Write("Введите произвольное римское число: ");
 string input = Console.ReadLine()!;
 
-string[] newArray = GetStrArrayFromString(input.ToUpper());
+string[] newArray = GetStrArrayFromString(input.ToUpper()); //Можно вводить буквы любого регистра.
 int numArabic = GetArabicNum(ConvertStrArrayToInt(newArray));
 
 // Console.WriteLine(string.Join(", ", GetStrArrayFromString(input))); //test f1
