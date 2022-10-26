@@ -62,8 +62,8 @@ string input = Console.ReadLine()!;
 string[] newArray = GetStrArrayFromString(input.ToUpper()); //Можно вводить буквы любого регистра.
 int numArabic = GetArabicNum(ConvertStrArrayToInt(newArray));
 
-// Console.WriteLine(string.Join(", ", GetStrArrayFromString(input))); //test f1
-// Console.WriteLine(string.Join(", ", ConvertStrArrayToInt(newArray))); //test f2
+// Console.WriteLine(string.Join(", ", GetStrArrayFromString(input))); //unit_test f1
+// Console.WriteLine(string.Join(", ", ConvertStrArrayToInt(newArray))); //unit_test f2
 
 if (numArabic == 0)
 {
