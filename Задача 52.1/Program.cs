@@ -5,36 +5,72 @@
 // MCMXCIV -> 1994
 
 // 1 функция: принимает строку, возвращает одномерный строковый массив.
-int[] GetArrayFromString(string stringArray) // Задаем функцию, которая считывает элементы из строчного массива и запоминает элементы в целочисленный массив.
+string[] GetStrArrayFromString(string num)
 {
-    string[] nums = stringArray.Split(" ", StringSplitOptions.RemoveEmptyEntries); // Объявляем новый массив, заполняемый методом Split. В скобках указываем критерий, 
-                                                                                   //по которму выделяются элементы. Здесь это пробел. StringSplitOptions.RemoveEmptyEntries - предостерегает от ошибки, если пустая строка.
-                                                                                   //Если мы введем "1 22 31 4", Split выдаст массив [1, 22, 31, 4]/
-    int[] res = new int[nums.Length];                                              //Здесь создаем результирующий массив-накопитель для вывода результата.
-
-    for (int i = 0; i < nums.Length; i++)
+    string[] nums = new string[num.Length];
+    for (int i = 0; i < num.Length; i++)
     {
-        res[i] = int.Parse(nums[i]);                                              //В цикле проходим по массиву и конвертируем string в int.
+        nums[i] = num[i].ToString();
+    }
+    return nums;
+}
+
+// 2 функция: принимает строковый массив, преобразует в массив int, возвращает одномерный массив int.
+int[] ConvertStrArrayToInt(string[] array)
+{
+    int[] res = new int[array.Length + 1];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] == "I")
+            res[i] = 1;
+        else if (array[i] == "V")
+            res[i] = 5;
+        else if (array[i] == "X")
+            res[i] = 10;
+        else if (array[i] == "L")
+            res[i] = 50;
+        else if (array[i] == "C")
+            res[i] = 100;
+        else if (array[i] == "D")
+            res[i] = 500;
+        else if (array[i] == "M")
+            res[i] = 1000;
     }
     return res;
 }
 
-// 2 функция: принимает строковый массив, преобразует в массив int, возвращает одномерный массив int.
-
 // 3 функция: принимает массив int, формирует арабское число.
+int GetArabicNum(int[] array)
+{
+    int res = 0;
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        if (array[i] < array[i + 1])
+        {
+            res = res + (array[i + 1] - array[i]);
+            i++;
+        }
+        else res = res + array[i];
+    }
+    return res;
+}
 
-
-// Просим пользователя ввести произвольное римское число.
 Console.Clear();
-Console.Write("Введите целые числа через пробел: ");
-// Переменная string принимает строку с римскими цифрами.
+Console.Write("Введите произвольное римское число: ");
 string input = Console.ReadLine()!;
-// Вызов функции 1.
-int[] newArray = GetArrayFromString(input);
-// Вызов функции 2.
 
-// Печать результата (вызов функции 3).
+string[] newArray = GetStrArrayFromString(input.ToUpper());
+int numArabic = GetArabicNum(ConvertStrArrayToInt(newArray));
 
-Console.WriteLine(String.Join(" ", GetArrayFromString(newArray))); //тест
+// Console.WriteLine(string.Join(", ", GetStrArrayFromString(input))); //test f1
+// Console.WriteLine(string.Join(", ", ConvertStrArrayToInt(newArray))); //test f2
 
-
+if (numArabic == 0)
+{
+    Console.WriteLine("Введите корректное римское число.");
+}
+else
+{
+    Console.WriteLine
+    ($"Введенное число {input.ToUpper()} соответствует {GetArabicNum(ConvertStrArrayToInt(newArray))} в арабской системе счисления.");
+}
