@@ -18,7 +18,7 @@ int[,,] GetArray(int m, int n, int l, int minValue, int maxValue)
     return result;
 }
 
-void PrintArray(int[,,] inArray)
+void Print3DArray(int[,,] inArray)
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
@@ -44,4 +44,4 @@ Console.Write("Введите количество страниц в масси�
 int pages = int.Parse(Console.ReadLine()!);
 
 int[,,] userArray = GetArray(row, columns, pages, 0, 20);
-PrintArray(userArray);
+Print3DArray(userArray);
