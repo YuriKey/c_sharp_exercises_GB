@@ -5,9 +5,9 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int[,] FillArray(int[] array)
+int[,] FillArray(int[,] array)
 {
-    int[,] newArray = new int[4, 4];
+    int[,] newArray = new int[array.GetLength(0), array.GetLength(1)];
     int i = 0;
     int j = 0;
     for (int temp = 1; temp <= newArray.GetLength(0) * newArray.GetLength(1); temp++)
@@ -32,16 +32,19 @@ void PrintArray(int[,] inArray)
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
             if (inArray[i, j] / 10 <= 0)
-                Console.Write($"0{inArray[i, j]} ");
+                Console.Write($"0{inArray[i, j]}\t ");
 
-            else Console.Write($"{inArray[i, j]} ");
+            else Console.Write($"{inArray[i, j]}\t ");
         }
         Console.WriteLine();
     }
 }
 
 Console.Clear();
-int[] userArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+Console.Write("Введите длину строки массива: ");
+int l = int.Parse(Console.ReadLine()!);
+
+int[,] userArray = new int[l,l];
 int[,] changedArray = FillArray(userArray);
 PrintArray(changedArray);
 
